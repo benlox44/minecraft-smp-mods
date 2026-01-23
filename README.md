@@ -25,6 +25,7 @@ Mods dedicados a mejorar los FPS, reducir el lag y optimizar el uso de memoria.
 - **FerriteCore**: Reducción del uso de memoria RAM.
 - **ScalableLux**: Optimización del motor de iluminación (fork moderno de Starlight).
 - **ServerCore** & **Entity View Distance**: Mejoras en el rendimiento del servidor.
+- **Spark**: Herramienta de diagnóstico para monitorizar el rendimiento y lag.
 
 ### 🎨 Gráficos y Estética (Client)
 Mejoras visuales para una experiencia más inmersiva.
@@ -33,6 +34,8 @@ Mejoras visuales para una experiencia más inmersiva.
 - **Visuality**: Añade partículas cosméticas a eventos del juego.
 - **LambDynamicLights**: Iluminación dinámica (antorchas en mano iluminan).
 - **Not Enough Animations**: Añade animaciones en tercera persona (comer, navegar, etc.).
+- **Sound Physics Perfected**: Simulación física del sonido, ecos y reverberación.
+- **LeaveMyBarsAlone**: Evita que otros mods muevan las barras de la interfaz.
 
 ### 🗣️ Comunicación y Social
 Herramientas para interactuar con otros jugadores.
@@ -42,6 +45,8 @@ Herramientas para interactuar con otros jugadores.
 - **Chat Heads**: Muestra la cabeza del jugador junto a sus mensajes en el chat.
 - **No Chat Reports**: Privacidad y seguridad en el chat.
 - **Ping Wheel**: Sistema de ping visual (estilo Apex/Fortnite) para señalar cosas.
+- **No Telemetry**: Desactiva el envío de datos de telemetría a Mojang.
+- **Locator (Heads & Lodestones)**: Localizador visual de jugadores y piedras imán.
 
 ### 🛠️ Utilidades y Calidad de Vida (QoL)
 Pequeños cambios que mejoran la experiencia de usuario.
@@ -51,7 +56,11 @@ Pequeños cambios que mejoran la experiencia de usuario.
 - **Image2Map**: Permite importar imágenes al juego como mapas.
 - **Audioplayer**: Reproducción de música personalizada mediante discos/cajas de música.
 - **ServerSleep**: Permite pasar la noche si un porcentaje de jugadores duerme.
-- **ClickThrough**: (Si incluido) Permite interactuar con cofres/letreros a través de marcos.
+- **CutThrough**: Permite interactuar con cofres/letreros a través de marcos (sustituye a ClickThrough).
+- **BetterStats**: Interfaz de estadísticas mejorada y organizada.
+- **ShulkerBoxTooltip**: Ver el contenido de cajas de shulker desde el inventario.
+- **Scribble**: Permite dibujar y tomar notas en los mapas.
+- **vt-downloader**: Descargador de recursos de Vanilla Tweaks integrado.
 
 ## 💾 Instalación
 
@@ -71,4 +80,4 @@ Pequeños cambios que mejoran la experiencia de usuario.
 - **Java**: Asegúrate de tener instalado Java 21 (o la versión requerida por 1.21.11 en 2026).
 - **Configuración**: Algunos mods como `Distant Horizons` requieren configuración adicional en el cliente para funcionar óptimamente según tu PC.
 
-Mod Pack recomendado: https://vanillatweaks.net/share#ekNtf1
+Resourse Pack recomendado: https://vanillatweaks.net/share#ekNtf1
