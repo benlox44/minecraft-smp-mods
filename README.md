@@ -31,6 +31,7 @@ Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
 - [C2ME](https://modrinth.com/mod/c2me-fabric): Optimizes chunk generation and loading for better performance.
 - [FerriteCore](https://modrinth.com/mod/ferrite-core): Reduces memory (RAM) usage significantly.
 - [Lithium](https://modrinth.com/mod/lithium): General-purpose server optimization mod to improve game logic performance.
+- [No Tutorial](https://modrinth.com/mod/no-tutorial): instantly disables all the in-game tutorial messages
 - [Sodium](https://modrinth.com/mod/sodium): Rendering engine replacement that greatly improves frame rates.
 - [spark](https://modrinth.com/mod/spark): A performance profiling tool for diagnosing lag.
 
