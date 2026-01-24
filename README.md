@@ -50,9 +50,16 @@ Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
 ### Server Utils
 - [Server Sleep](https://modrinth.com/mod/serversleep): Allows the night to pass when only a percentage of players sleep.
 
-## Installation
+## Installation without instance.zip
 
 1. Install [Fabric Loader](https://fabricmc.net/) for Minecraft 1.21.11.
 2. Download the mods from the links above.
 3. Place the `.jar` files in your `mods` folder.
+4. Launch the game.
+
+## Installation with instance.zip
+
+1. Download instancia.zip from the repository
+2. Install and open [Prism Launcher](https://prismlauncher.org/)
+3. "Add Instance" -> "Import" and select the zip file
 4. Launch the game.
