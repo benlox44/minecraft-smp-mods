@@ -1,0 +1,13 @@
+name = "TAB"
+filename = "TAB v6.2.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/gG7VFbG0/versions/HlsRTW5F/TAB%20v6.2.1.jar"
+hash-format = "sha512"
+hash = "146fff1d94506459b32532d707f11e544da448b7dbfcb16c7a9a4fb91db7be8be272b275f3315e4c2122529a3ac30ccc344654fc013303615679d6a90207b41c"
+
+[update]
+[update.modrinth]
+mod-id = "gG7VFbG0"
+version = "HlsRTW5F"
