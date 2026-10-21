@@ -1,6 +1,45 @@
 # SMP Minecraft Mods 
 
-Collection of mods used in our SMP server for Minecraft 26.3 (Fabric).
+Collection of mods used in our SMP server for Minecraft 26.3 (Fabric). Managed with [packwiz](https://packwiz.infra.link/) and distributed as a modern [Modrinth Modpack (`.mrpack`)](https://modrinth.com/).
+
+## Installation (Client)
+
+### Option 1: Prism Launcher (Recommended)
+1. Download `smp-mods.mrpack` from this repository or from the [Releases](https://github.com/benlox44/smp-mods/releases) page.
+2. Open [Prism Launcher](https://prismlauncher.org/).
+3. Click **"Add Instance"** -> **"Import"**.
+4. Select `smp-mods.mrpack` and confirm.
+5. Launch the game! *(All mods, configurations, and server address `mc.lacto.vip` are preconfigured automatically).*
+
+### Option 2: Modrinth App
+1. Download `smp-mods.mrpack`.
+2. In the Modrinth App, click the **+** (Add Profile) -> **Import from file**.
+3. Select `smp-mods.mrpack` and launch.
+
+---
+
+## Server Synchronization
+
+To download or update the server-side mods directly into `minecraft-server/data/mods`:
+
+```bash
+just sync-server
+# or directly:
+python download_server_mods.py
+```
+
+---
+
+## Modpack Management (for maintainers)
+
+This repository uses **packwiz** with `.pw.toml` files pointing to Modrinth, keeping the Git repository lightweight without storing binary `.jar` files:
+
+- `just refresh`: Refreshes the packwiz index (`index.toml`).
+- `just export`: Exports a new `smp-mods.mrpack`.
+- `just update`: Automatically checks and updates all mods to their latest versions on Modrinth.
+- `just sync-server`: Downloads/syncs all server mods to `minecraft-server/data/mods`.
+
+---
 
 ## Content Mods
 
@@ -8,11 +47,10 @@ Collection of mods used in our SMP server for Minecraft 26.3 (Fabric).
 - [AppleSkin](https://modrinth.com/mod/appleskin): Shows food exhaustion and saturation on the HUD.
 - [Better Mount HUD](https://modrinth.com/mod/better-mount-hud): Improves the HUD information when riding horses and other mounts.
 - [Better Statistics Screen](https://modrinth.com/mod/better-statistics-screen): Replaces the statistics screen with an easier to use and read layout.
-- [Boat Item View](https://www.curseforge.com/minecraft/mc-mods/boat-item-view): Allows you to see your held items while riding in a boat.
+- [Boat Item View](https://modrinth.com/mod/boat-item-view): Allows you to see your held items while riding in a boat.
 - [Chat Heads](https://modrinth.com/mod/chat-heads): Displays player heads next to their messages in chat.
 - [Cut Through](https://modrinth.com/mod/cut-through): Allows hitting entities through transparent blocks like tall grass.
 - [Death Finder](https://modrinth.com/mod/death-finder): Prints death coordinates and dimension in the chat upon dying.
-- [Distant Horizons](https://modrinth.com/mod/distant-horizons): Adds Level of Detail (LOD) rendering to view terrain from far away.
 - [Elytra Trims](https://modrinth.com/mod/elytra-trims): Enables armor trims to be applied to Elytra wings.
 - [Iris Shaders](https://modrinth.com/mod/iris): A modern shaders mod compatible with Sodium.
 - [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights): Adds dynamic lighting where held items emit light.
@@ -27,6 +65,8 @@ Collection of mods used in our SMP server for Minecraft 26.3 (Fabric).
 - [Sodium Shadowy Path Blocks](https://modrinth.com/mod/sodium-shadowy-path-blocks): Fixes a visual bug with shadows on path blocks when using Sodium.
 - [Sound Physics Perfected](https://modrinth.com/mod/sound-physics-perfected): Simulates realistic sound attenuation, reverberation, and absorption.
 - [Visuality](https://modrinth.com/mod/visuality): Adds visual particle effects for various game events.
+- [Voxy](https://modrinth.com/mod/voxy): Lightweight, GPU-driven voxel Level of Detail (LOD) mod for massive render distances.
+- [Voxy Server Side](https://modrinth.com/plugin/voxy-server-side): Streams distant terrain LOD data from the server to connected Voxy clients.
 
 ### Performance & Optimization
 - [C2ME](https://modrinth.com/mod/c2me-fabric): Optimizes chunk generation and loading for better performance.
@@ -63,17 +103,3 @@ Collection of mods used in our SMP server for Minecraft 26.3 (Fabric).
 - [Sessility](https://modrinth.com/mod/sessility): Tracks player AFK state on the server.
 - [squaremap](https://modrinth.com/mod/squaremap): Minimalistic, fast web-based live map viewer.
 - [View Distance Fix](https://modrinth.com/mod/view-distance-fix): Fixes view distance desync between client and server.
-
-## Installation without instance.zip
-
-1. Install [Fabric Loader](https://fabricmc.net/) (version 0.19+) for Minecraft 26.3.
-2. Place the `.jar` files from `/client` into your `.minecraft/mods` folder.
-3. Ensure you have Java 25+ installed.
-4. Launch the game.
-
-## Installation with instance.zip
-
-1. Download `instance.zip` from this repository.
-2. Install and open [Prism Launcher](https://prismlauncher.org/).
-3. Click "Add Instance" -> "Import" and select `instance.zip`.
-4. Launch the game.

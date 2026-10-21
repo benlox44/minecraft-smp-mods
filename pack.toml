@@ -1,0 +1,13 @@
+name = "smp-mods"
+author = "benlox"
+version = "26.3"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "6b23791d7395cdbd50ce7baea04a30ed6c6692f87b976907e6cc1222e4105734"
+
+[versions]
+fabric = "0.20.1"
+minecraft = "26.3"

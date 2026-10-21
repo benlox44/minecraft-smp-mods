@@ -1,0 +1,13 @@
+name = "Voice Messages"
+filename = "voicemessages-fabric-1.0.13-26.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/WWLeFuHa/versions/ZYDCOCas/voicemessages-fabric-1.0.13-26.3.jar"
+hash-format = "sha512"
+hash = "22f70d128a3ae978b89c40c755f1657292ca045f6c77a560a9a19a064d5b29017e33a1a89362eec85886e9c68f4ab2df0d8d9901979e34da4c3760a54c2d95b6"
+
+[update]
+[update.modrinth]
+mod-id = "WWLeFuHa"
+version = "ZYDCOCas"

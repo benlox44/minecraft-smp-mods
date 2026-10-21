@@ -1,0 +1,5 @@
+*.jar
+*.log
+.cache/
+cache/
+server_mods/
