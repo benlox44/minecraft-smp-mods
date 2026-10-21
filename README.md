@@ -1,6 +1,6 @@
 # SMP Minecraft Mods 
 
-Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
+Collection of mods used in our SMP server for Minecraft 26.3 (Fabric).
 
 ## Content Mods
 
@@ -14,12 +14,13 @@ Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
 - [Death Finder](https://modrinth.com/mod/death-finder): Prints death coordinates and dimension in the chat upon dying.
 - [Distant Horizons](https://modrinth.com/mod/distant-horizons): Adds Level of Detail (LOD) rendering to view terrain from far away.
 - [Elytra Trims](https://modrinth.com/mod/elytra-trims): Enables armor trims to be applied to Elytra wings.
-- [Image2Map](https://modrinth.com/mod/image2map): Allows rendering custom images onto Minecraft maps in-game.
 - [Iris Shaders](https://modrinth.com/mod/iris): A modern shaders mod compatible with Sodium.
 - [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights): Adds dynamic lighting where held items emit light.
 - [Leave My Bars Alone](https://modrinth.com/mod/leave-my-bars-alone): Prevents effects and other factors from shifting the hotbar and HUD.
-- [Locator Heads](https://modrinth.com/mod/locator-heads): Displays player heads on the locator (boss) bar.
-- [Locator Lodestones](https://modrinth.com/mod/locator_lodestones): Adds Lodestones to the Player Locator Bar.
+- [Locator Heads](https://modrinth.com/mod/locator-heads): Displays player heads on the locator bar.
+- [MaLiLib](https://modrinth.com/mod/malilib): Configuration library required by masa's client-side mods.
+- [MiniHUD](https://modrinth.com/mod/minihud): Highly configurable mini F3-like information overlay.
+- [Mod Menu](https://modrinth.com/mod/modmenu): Adds an in-game menu to view and configure installed mods.
 - [Not Enough Animations](https://modrinth.com/mod/not-enough-animations): Adds missing third-person animations like eating, drinking, and rowing.
 - [Scribble](https://modrinth.com/mod/scribble): Provides advanced book editing tools and formatting options.
 - [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip): Allows viewing the contents of Shulker Boxes in the inventory.
@@ -29,17 +30,20 @@ Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
 
 ### Performance & Optimization
 - [C2ME](https://modrinth.com/mod/c2me-fabric): Optimizes chunk generation and loading for better performance.
+- [Debugify](https://modrinth.com/mod/debugify): Fixes many vanilla Minecraft bugs on both client and server.
 - [FerriteCore](https://modrinth.com/mod/ferrite-core): Reduces memory (RAM) usage significantly.
-- [Lithium](https://modrinth.com/mod/lithium): General-purpose server optimization mod to improve game logic performance.
-- [No Tutorial](https://modrinth.com/mod/no-tutorial): instantly disables all the in-game tutorial messages
+- [Lithium](https://modrinth.com/mod/lithium): General-purpose optimization mod to improve game logic and physics performance.
+- [ScalableLux](https://modrinth.com/mod/scalablelux): Optimizes the lighting engine for better server and world performance.
+- [ServerCore](https://modrinth.com/mod/servercore): Comprehensive server optimization and ticking performance enhancements.
 - [Sodium](https://modrinth.com/mod/sodium): Rendering engine replacement that greatly improves frame rates.
-- [spark](https://modrinth.com/mod/spark): A performance profiling tool for diagnosing lag.
+- [spark](https://modrinth.com/mod/spark): A performance profiling tool for diagnosing lag on client and server.
+- [Structure Layout Optimizer](https://modrinth.com/mod/structure-layout-optimizer): Optimizes jigsaw structure generation to reduce server freezes.
 
 ### Social & Chat
 - [AudioPlayer](https://modrinth.com/mod/audioplayer): Allows playing custom audio files and music discs in the world.
 - [More Chat History](https://modrinth.com/mod/more-chat-history): Increases the maximum length of the scrolling chat history.
-- [No Chat Reports](https://modrinth.com/mod/no-chat-reports): Disables the chat reporting telemetry and crypto-signing.
-- [No Telemetry](https://modrinth.com/mod/no-telemetry): Disables the telemetry data collection sent to Mojang.
+- [No Chat Reports](https://modrinth.com/mod/no-chat-reports): Disables chat reporting telemetry and crypto-signing.
+- [No Telemetry](https://modrinth.com/mod/no-telemetry): Disables telemetry data collection sent to Mojang.
 - [Ping Wheel](https://modrinth.com/mod/ping-wheel): Adds a ping wheel system for easy communication of locations.
 - [Simple Discord Link](https://modrinth.com/mod/simple-discord-link): Bridges Minecraft chat with a Discord server.
 - [Simple Voice Chat](https://modrinth.com/mod/simple-voice-chat): Adds proximity-based voice chat to the game.
@@ -47,19 +51,29 @@ Collection of mods used in our SMP server for Minecraft 1.21.11 (Fabric).
 - [TAB](https://modrinth.com/plugin/tab-was-taken): Enables extensive customization of the tab list.
 - [Voice Messages](https://modrinth.com/plugin/voicemessages): Allows sending recorded voice messages in chat.
 
-### Server Utils
+### Server Utils & World
+- [Chunky](https://modrinth.com/mod/chunky): Fast and efficient world pre-generator.
+- [Death Backup](https://modrinth.com/mod/death-backup): Automatically backs up player inventories right before death.
+- [Entity View Distance](https://modrinth.com/mod/entity-view-distance): Precise control over entity rendering distance on the server.
+- [JourneyMap](https://modrinth.com/mod/journeymap): Real-time mapping support and server sync.
+- [Lithostitched](https://modrinth.com/mod/lithostitched): Expansive library with enhanced configurability for custom world generation.
+- [NetherPortalFix](https://modrinth.com/mod/netherportalfix): Ensures correct destinations when travelling back and forth through Nether Portals.
 - [Server Sleep](https://modrinth.com/mod/serversleep): Allows the night to pass when only a percentage of players sleep.
+- [Servux](https://modrinth.com/mod/servux): Server-side support and bounding box integration for client mods like MiniHUD.
+- [Sessility](https://modrinth.com/mod/sessility): Tracks player AFK state on the server.
+- [squaremap](https://modrinth.com/mod/squaremap): Minimalistic, fast web-based live map viewer.
+- [View Distance Fix](https://modrinth.com/mod/view-distance-fix): Fixes view distance desync between client and server.
 
 ## Installation without instance.zip
 
-1. Install [Fabric Loader](https://fabricmc.net/) for Minecraft 1.21.11.
-2. Download the mods from the links above.
-3. Place the `.jar` files in your `mods` folder.
+1. Install [Fabric Loader](https://fabricmc.net/) (version 0.19+) for Minecraft 26.3.
+2. Place the `.jar` files from `/client` into your `.minecraft/mods` folder.
+3. Ensure you have Java 25+ installed.
 4. Launch the game.
 
 ## Installation with instance.zip
 
-1. Download instancia.zip from the repository
-2. Install and open [Prism Launcher](https://prismlauncher.org/)
-3. "Add Instance" -> "Import" and select the zip file
+1. Download `instance.zip` from this repository.
+2. Install and open [Prism Launcher](https://prismlauncher.org/).
+3. Click "Add Instance" -> "Import" and select `instance.zip`.
 4. Launch the game.
