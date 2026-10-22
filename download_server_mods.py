@@ -13,7 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 MODS_DIR = ROOT / "mods"
-DEFAULT_DEST = ROOT.parent / "minecraft-server" / "data" / "mods"
+S_DRIVE_DEST = Path(r"S:\minecraft-server\data\mods")
+DEFAULT_DEST = S_DRIVE_DEST if S_DRIVE_DEST.exists() else (ROOT.parent / "minecraft-server" / "data" / "mods")
 
 
 def parse_pw_toml(path: Path) -> dict:

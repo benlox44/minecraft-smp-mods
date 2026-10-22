@@ -10,7 +10,7 @@ refresh:
 
 # Export pack to Modrinth .mrpack
 export: refresh
-    packwiz mr export -o smp-mods.mrpack
+    packwiz mr export -o minecraft-smp-mods.mrpack
 
 # Update all mods to their latest versions on Modrinth
 update:

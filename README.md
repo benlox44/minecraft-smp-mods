@@ -1,20 +1,20 @@
-# SMP Minecraft Mods 
+# Minecraft SMP Mods 
 
 Collection of mods used in our SMP server for Minecraft 26.3 (Fabric). Managed with [packwiz](https://packwiz.infra.link/) and distributed as a modern [Modrinth Modpack (`.mrpack`)](https://modrinth.com/).
 
 ## Installation (Client)
 
 ### Option 1: Prism Launcher (Recommended)
-1. Download `smp-mods.mrpack` from this repository or from the [Releases](https://github.com/benlox44/smp-mods/releases) page.
+1. Download `minecraft-smp-mods.mrpack` from the [Releases](https://github.com/benlox44/minecraft-smp-mods/releases) page.
 2. Open [Prism Launcher](https://prismlauncher.org/).
 3. Click **"Add Instance"** -> **"Import"**.
-4. Select `smp-mods.mrpack` and confirm.
-5. Launch the game! *(All mods, configurations, and server address `mc.lacto.vip` are preconfigured automatically).*
+4. Select `minecraft-smp-mods.mrpack` and confirm.
+5. Launch the game!
 
 ### Option 2: Modrinth App
-1. Download `smp-mods.mrpack`.
+1. Download `minecraft-smp-mods.mrpack`.
 2. In the Modrinth App, click the **+** (Add Profile) -> **Import from file**.
-3. Select `smp-mods.mrpack` and launch.
+3. Select `minecraft-smp-mods.mrpack` and launch.
 
 ---
 
@@ -35,7 +35,7 @@ python download_server_mods.py
 This repository uses **packwiz** with `.pw.toml` files pointing to Modrinth, keeping the Git repository lightweight without storing binary `.jar` files:
 
 - `just refresh`: Refreshes the packwiz index (`index.toml`).
-- `just export`: Exports a new `smp-mods.mrpack`.
+- `just export`: Exports a new `minecraft-smp-mods.mrpack` to upload to GitHub Releases.
 - `just update`: Automatically checks and updates all mods to their latest versions on Modrinth.
 - `just sync-server`: Downloads/syncs all server mods to `minecraft-server/data/mods`.
 
