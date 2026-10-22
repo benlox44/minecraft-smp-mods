@@ -5,16 +5,74 @@ Usage:
     python download_server_mods.py [--dest PATH]
 """
 import argparse
-import glob
 import hashlib
 import os
+import sys
 import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+ENV_FILE = ROOT / ".env"
 MODS_DIR = ROOT / "mods"
-S_DRIVE_DEST = Path(r"S:\minecraft-server\data\mods")
-DEFAULT_DEST = S_DRIVE_DEST if S_DRIVE_DEST.exists() else (ROOT.parent / "minecraft-server" / "data" / "mods")
+
+
+def load_env(env_file: Path) -> dict[str, str]:
+    """Load key-value pairs from a simple .env file."""
+    env = {}
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            s = line.strip()
+            if not s or s.startswith("#") or "=" not in s:
+                continue
+            k, _, v = s.partition("=")
+            env[k.strip()] = v.strip().strip("'\"")
+    return env
+
+
+def resolve_destination(explicit_dest: Path | None) -> Path:
+    """
+    Resolve the server mods destination directory with fail-fast validation.
+    Priority:
+      1. Explicit CLI argument (--dest)
+      2. Environment variable or .env file (SERVER_MODS_DEST)
+      3. Auto-detected server directory candidates
+    """
+    # 1. CLI argument
+    if explicit_dest:
+        dest = explicit_dest.resolve()
+        if not dest.exists() and not dest.parent.exists():
+            print(f"[ERROR] Destination path is invalid: '{dest}'", file=sys.stderr)
+            print(f"[ERROR] Parent directory '{dest.parent}' does not exist.", file=sys.stderr)
+            sys.exit(1)
+        return dest
+
+    # 2. .env file or environment variable
+    env = load_env(ENV_FILE)
+    dest_str = env.get("SERVER_MODS_DEST") or os.environ.get("SERVER_MODS_DEST")
+    if dest_str:
+        dest = Path(dest_str.strip()).resolve()
+        if not dest.exists() and not dest.parent.exists():
+            print(f"[ERROR] SERVER_MODS_DEST configured in .env is invalid: '{dest}'", file=sys.stderr)
+            print(f"[ERROR] Neither '{dest}' nor its parent directory '{dest.parent}' exists.", file=sys.stderr)
+            print("[HINT] Verify the path set in your .env file or ensure the target drive is mounted.", file=sys.stderr)
+            sys.exit(1)
+        return dest
+
+    # 3. Auto-detected fallback candidates
+    candidates = [
+        Path(r"S:\minecraft-server\data\mods"),
+        Path(r"C:\minecraft-server\data\mods"),
+        ROOT.parent / "minecraft-server" / "data" / "mods",
+    ]
+    for c in candidates:
+        if c.exists() or c.parent.exists():
+            print(f"[*] Auto-detected server mods destination: {c}")
+            return c
+
+    # Fail fast if no candidate is found
+    print("[ERROR] Could not automatically locate a Minecraft server 'data/mods' directory.", file=sys.stderr)
+    print("[HINT] Create a .env file with SERVER_MODS_DEST=<path> or pass --dest <path>.", file=sys.stderr)
+    sys.exit(1)
 
 
 def parse_pw_toml(path: Path) -> dict:
@@ -50,12 +108,26 @@ def verify_hash(file_path: Path, expected_hash: str) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(description="Download server mods from packwiz metadata.")
-    parser.add_argument("--dest", type=Path, default=DEFAULT_DEST, help="Destination directory for server mods")
+    parser.add_argument("--dest", type=Path, default=None, help="Destination directory for server mods")
     args = parser.parse_args()
 
-    dest = args.dest
-    dest.mkdir(parents=True, exist_ok=True)
+    dest = resolve_destination(args.dest)
+
+    if dest.exists() and not dest.is_dir():
+        print(f"[ERROR] Destination path is a file, not a directory: '{dest}'", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        dest.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        print(f"[ERROR] Cannot create destination directory '{dest}': {exc}", file=sys.stderr)
+        sys.exit(1)
+
     print(f"[*] Destination: {dest}")
+
+    if not MODS_DIR.is_dir():
+        print(f"[ERROR] Mods metadata directory not found: '{MODS_DIR}'", file=sys.stderr)
+        sys.exit(1)
 
     server_mods = []
     for toml_path in sorted(MODS_DIR.glob("*.pw.toml")):
@@ -80,13 +152,25 @@ def main():
             continue
 
         print(f"[*] Downloading {m['filename']}...")
-        urllib.request.urlretrieve(m["url"], target_file)
-        if not verify_hash(target_file, m["sha512"]):
-            print(f"[ERROR] Hash mismatch for {m['filename']}")
-        else:
-            downloaded += 1
+        try:
+            req = urllib.request.Request(m["url"], headers={"User-Agent": "minecraft-smp-mods-sync/1.0"})
+            with urllib.request.urlopen(req, timeout=30) as resp, open(target_file, "wb") as out_file:
+                while chunk := resp.read(65536):
+                    out_file.write(chunk)
+        except Exception as exc:
+            if target_file.exists():
+                target_file.unlink(missing_ok=True)
+            print(f"[ERROR] Download failed for {m['filename']}: {exc}", file=sys.stderr)
+            sys.exit(1)
 
-    print(f"[*] Completed: {downloaded} downloaded, {skipped} up to date.")
+        if not verify_hash(target_file, m["sha512"]):
+            target_file.unlink(missing_ok=True)
+            print(f"[ERROR] Hash mismatch for {m['filename']} (expected {m['sha512']}). Corrupted file removed.", file=sys.stderr)
+            sys.exit(1)
+
+        downloaded += 1
+
+    print(f"[+] Completed successfully: {downloaded} downloaded, {skipped} up to date.")
 
 
 if __name__ == "__main__":

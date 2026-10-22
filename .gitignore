@@ -4,3 +4,4 @@
 cache/
 server_mods/
 *.mrpack
+.env
