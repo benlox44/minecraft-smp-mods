@@ -20,7 +20,7 @@ Collection of mods used in our SMP server for Minecraft 26.3 (Fabric). Managed w
 
 ## Server Synchronization
 
-Configure the server destination directory in `.env` (optional, defaults to local shared server path):
+Configure the server destination directory in `.env`:
 
 ```bash
 copy .env.example .env
