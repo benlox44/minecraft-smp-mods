@@ -20,7 +20,13 @@ Collection of mods used in our SMP server for Minecraft 26.3 (Fabric). Managed w
 
 ## Server Synchronization
 
-To download or update the server-side mods directly into `minecraft-server/data/mods`:
+Configure the server destination directory in `.env` (optional, defaults to local shared server path):
+
+```bash
+copy .env.example .env
+```
+
+To download or update the server-side mods directly:
 
 ```bash
 just sync-server
